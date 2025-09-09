@@ -108,7 +108,7 @@ spring.mail.properties.mail.smtp.starttls.required=true
 spring.mail.properties.mail.debug=false   # set to false after verifying
 
 # pretty From name (works with SimpleMailMessage)
-mail.from=SmartLendOfficial <smartlendlms1@gmail.com>
+mail.from=SmartLendOfficial <your official Mail>
 
 ```
 
