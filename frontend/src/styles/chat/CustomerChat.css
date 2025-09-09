@@ -1,0 +1,236 @@
+:root {
+  --brand-navy: #273c75;
+  --brand-indigo: #4e54c8;
+  --brand-bg: #f7f9fa;
+  --surface: #ffffff;
+  --ink: #0f172a;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --shadow: 0 8px 36px rgba(78,84,200,0.13), 0 2px 8px rgba(78,84,200,0.10);
+}
+
+.customerchat-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px;
+  background: var(--brand-bg);
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+.customerchat-box {
+  width: 950px;
+  max-width: 99vw;
+  min-height: 560px;
+  max-height: 82vh;
+  background: var(--surface);
+  border: 1.5px solid var(--brand-indigo);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+}
+
+/* Header */
+.customerchat-header {
+  background: var(--brand-navy);
+  color: #fff;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.customerchat-title {
+  font-weight: 800;
+  letter-spacing: .6px;
+  font-size: 1.2rem;
+}
+
+/* Messages */
+.customerchat-messages {
+  background: var(--brand-bg);
+  padding: 22px 26px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.customerchat-messages::-webkit-scrollbar {
+  width: 8px;
+  background: #eaeaea;
+  border-radius: 8px;
+}
+.customerchat-messages::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 8px;
+}
+.customerchat-loading {
+  text-align: center;
+  color: var(--muted);
+  padding: 8px 0;
+}
+
+/* Rows + bubbles */
+.customerchat-row {
+  display: flex;
+}
+.customerchat-row.left { justify-content: flex-start; }
+.customerchat-row.right { justify-content: flex-end; }
+
+.customerchat-bubble {
+  max-width: min(680px, 78%);
+  background: #f1f1f1;
+  color: var(--ink);
+  border-radius: 18px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 8px rgba(39,60,117,0.06);
+  position: relative;
+  word-break: break-word;
+}
+.customerchat-row.right .customerchat-bubble {
+  background: linear-gradient(90deg, #e0ffe7 0%, #c2f0fc 100%);
+}
+
+.customerchat-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 14px;
+  width: 10px; height: 10px;
+  background: inherit;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+.customerchat-row.right .customerchat-bubble::after {
+  left: auto; right: 14px;
+}
+
+.customerchat-bubble-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.customerchat-sender {
+  font-weight: 700;
+  color: var(--brand-navy);
+}
+.customerchat-time {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.customerchat-text {
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* Input row */
+.customerchat-inputrow {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: var(--brand-bg);
+  border-top: 1px solid var(--line);
+  position: relative;
+}
+
+.customerchat-inputrow textarea {
+  resize: none;
+  max-height: 160px;
+  min-height: 44px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #d1d5db;
+  font-size: 1rem;
+  outline: none;
+  transition: border .2s, background .2s;
+  background: #fff;
+}
+.customerchat-inputrow textarea:focus {
+  border: 2px solid var(--brand-navy);
+  background: #f0f4ff;
+}
+
+.customerchat-emoji {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+.customerchat-emoji:hover {
+  background: #eef2ff;
+}
+
+.customerchat-emoji-pop {
+  position: absolute;
+  right: 110px;
+  bottom: 60px;
+  z-index: 20;
+  box-shadow: 0 4px 24px rgba(39,60,117,0.18);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.customerchat-date-separator {
+  text-align: center;
+  margin: 18px 0 8px 0;
+  color: #1976d2;
+  font-weight: bold;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  background: #e3eafc;
+  border-radius: 12px;
+  padding: 4px 16px;
+  display: inline-block;
+}
+
+.customerchat-send {
+  padding: 11px 22px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, var(--brand-navy) 0%, var(--brand-indigo) 100%);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform .02s, opacity .2s;
+  box-shadow: 0 2px 8px rgba(39,60,117,0.10);
+}
+.customerchat-send:active { transform: translateY(1px); }
+.customerchat-send:hover { opacity: .95; }
+
+/* Small screens */
+@media (max-width: 640px) {
+  .customerchat-box {
+    border-radius: 14px;
+  }
+  .customerchat-messages {
+    padding: 16px 14px;
+  }
+  .customerchat-inputrow {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "text text"
+      "emoji send";
+    gap: 8px;
+  }
+  .customerchat-inputrow textarea {
+    grid-area: text;
+  }
+  .customerchat-emoji {
+    grid-area: emoji;
+    justify-self: start;
+  }
+  .customerchat-send {
+    grid-area: send;
+    justify-self: end;
+  }
+  .customerchat-emoji-pop {
+    right: 14px;
+  }
+}

@@ -1,0 +1,228 @@
+/* ===== EMI Card Wrapper (within EmiTable) ===== */
+.emi-card {
+  background: #d9d9d9;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 1px 1px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  font-family: 'Segoe UI', sans-serif;
+  border: 1px solid #e8eef6;
+
+}
+
+
+/* ===== Loan Summary Compact View ===== */
+.emi-loan-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #023D6B;
+  margin-bottom: 8px;
+}
+.emi-summary-compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px 16px;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 2px 2px;
+  background: #d9d9d9;
+}
+.emi-summary-compact div {
+  font-size: 15px;
+  color: #1b1b1b;
+  background: #d9d9d9;
+  
+}
+
+/* ===== Table Wrapper with Scroll ===== */
+.emi-table-wrapper { margin-top: 15px; }
+.emi-scroll-body {
+  max-height: 200px;          /* Adjust as needed */
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+/* ===== Base Table ===== */
+.emi-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: #fff;
+  
+}
+.emi-table thead th {
+  position: sticky;
+  top: 0;
+  background: #f7faff;
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-weight: 700;
+  z-index: 2;
+  
+}
+.emi-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+.emi-table tbody tr:last-child td { border-bottom: none; }
+
+/* ===== Status & Paid Inline ===== */
+.status-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+.badge.paid    { background: #d1f7d6; color: #1a7f31; border-color: #a9e8b2; }
+.badge.pending { background: #fff3cd; color: #a37b00; border-color: #ffe08a; }
+.badge.late    { background: #ffe0e0; color: #9c1a1a; border-color: #ffb3b3; }
+
+/* Subtle paid count in header <th> */
+.paid-inline-th {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.85;
+  margin-left: 4px;
+}
+
+/* ===== Buttons ===== */
+.pay-btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  background-color: #034373;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+.pay-btn:hover { filter: brightness(1.05); }
+.pay-btn.disabled { background-color: #cbd5e1; cursor: not-allowed; }
+
+/* ===== Misc ===== */
+.empty {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  padding: 15px;
+}
+
+/* ===== Show More Button ===== */
+.emi-more { text-align: right; margin-top: 10px; }
+.toggle-btn {
+  background: #e8f1ff;
+  border: 1px solid #cfe1ff;
+  color: #023D6B;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+.toggle-btn:hover { filter: brightness(1.02); }
+
+/* ===== Loan Cleared Badge ===== */
+.loan-cleared-badge {
+  background-color: #304c55; /* green */
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 5px 8px;
+  border-radius: 12px;
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ===== Download NOC Button (same as receipt) ===== */
+.noc-btn {
+  margin-left: 10px;
+}
+
+/* Locked future EMIs — greyed out, no pointer events */
+.pay-btn.locked {
+  background-color: #ccc !important;
+  color: #666 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  opacity: 0.6;
+}
+
+/* Optional: grey the whole row too */
+.locked-row {
+  background-color: #f4f4f4;
+}
+.locked-row:hover {
+  background-color: #f4f4f4; /* no hover effect */
+}
+
+
+
+/* =================== responsive @ 1111px =================== */
+@media (max-width: 1111px) {
+  /* On smaller screens, sidebar collapses — use full width */
+  .emi-card {
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin: 6px 4px 12px;
+  }
+  .emi-loan-title { font-size: 16px; margin-bottom: 6px; }
+
+  .emi-summary-compact {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 6px 10px;
+    padding: 6px 8px;
+  }
+  .emi-summary-compact div { font-size: 14px; }
+
+  .emi-table-wrapper {
+    margin-top: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .emi-scroll-body {
+    max-height: 260px;
+    border-radius: 10px;
+  }
+
+  .emi-table {
+    min-width: 760px;
+    font-size: 13px;
+  }
+  .emi-table thead th {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  .emi-table tbody td {
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+
+  .badge { font-size: 11px; padding: 3px 8px; }
+  .paid-inline-th { font-size: 11px; }
+
+  .pay-btn {
+    font-size: 12px;
+    padding: 6px 10px;
+    min-width: 110px;
+  }
+
+  .empty { font-size: 13px; padding: 12px; }
+  .toggle-btn { font-size: 12px; padding: 6px 10px; }
+  .loan-cleared-badge { font-size: 0.7rem; padding: 4px 7px; }
+  
+
+  
+}
+

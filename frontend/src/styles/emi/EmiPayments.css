@@ -1,0 +1,446 @@
+/* ===================== Layout constants ===================== */
+:root {
+  /* Sidebar width in your app layout */
+  --emi2-sidebar-w: 330px;
+  /* Heights of fixed blocks (tweak these if your content wraps more/less) */
+  --emi2-filter-h: 120px;  /* Filter bar total height */
+  --emi2-badges-h: 25px;   /* Active filter badges row */
+  --emi2-heading-h: 76px;  /* Section heading + count */
+
+  /* Spacing between stacked fixed blocks */
+  --emi2-gap: 9px;
+}
+
+/* ===================== Page wrapper ===================== */
+.emi-page {
+  position: relative;
+  min-height: 100vh;
+  background: #f8fbff;
+  font-family: 'Segoe UI', sans-serif;
+
+  /* Always start after the sidebar */
+  margin-left: 330px;     /* reserve space for sidebar */
+  width: calc(100% - 330px);
+  box-sizing: border-box;
+}
+
+
+/* ===================== Mobile toggle (hidden on desktop) ===================== */
+.emi2-toggle-filters-btn {
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #023D6B;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 2000;
+  font-size: 0.9rem;
+  border: none;
+}
+
+/* ===================== Fixed Filter Bar ===================== */
+.emi2-filter-fixed {
+  position: fixed;
+  top: 0;
+  left: var(--emi2-sidebar-w);
+  width: calc(100% - var(--emi2-sidebar-w));
+  z-index: 1100;
+  background: transparent;
+  padding: 12px 24px;
+  /* Give it a predictable block height for stacking below */
+  height: var(--emi2-filter-h);
+  box-sizing: border-box;
+}
+
+.emi2-filter-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #dcdee0;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  height: calc(var(--emi2-filter-h) - 24px); /* minus outer padding */
+  overflow: hidden;
+}
+
+.emi2-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 80px;
+  flex: 1;
+}
+.emi2-filter-group-button { display: flex; align-items: flex-end; }
+
+.emi2-filter-card label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.emi2-filter-input {
+  padding: 0.65rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background-color: #fff;
+}
+
+/* Clear button inside filter */
+.emi2-filter-clear-btn {
+  background-color: #69737c;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.emi2-filter-clear-btn:hover { background-color: #495057; }
+
+/* ===================== Fixed Topbar (Badges + Heading) ===================== */
+.emi2-topbar-fixed {
+  position: fixed;
+  left: var(--emi2-sidebar-w);
+  width: calc(100% - var(--emi2-sidebar-w));
+  z-index: 1090;
+  top: calc(var(--emi2-filter-h));
+  box-sizing: border-box;
+  padding: 0 24px;
+}
+
+/* Badges row */
+.emi2-active-filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  height: var(--emi2-badges-h);
+  align-items: center;
+  margin: 0 2px;
+}
+
+.emi2-filter-badge {
+  background-color: #e3f2fd;
+  color: #023D6B;
+  font-weight: 500;
+  padding: 0.35rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  border: 1px solid #90caf9;
+}
+
+/* Heading block */
+.emi2-section-header-wrapper {
+  /* background-color: #f6faff; */
+  border-left: 1px solid rgb(208, 208, 208);
+  border-right: 1px solid rgb(208, 208, 208);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin-top: var(--emi2-gap);
+  padding: 2px 16px;
+  height: var(--emi2-heading-h);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.emi2-section-heading {
+  font-size: 1.5rem;
+  color: #023D6B;
+
+}
+.emi2-count-label { color: #555; }
+
+/* ===================== SCROLL CONTAINER (ONLY THIS SCROLLS) ===================== */
+.emi2-content-scroll {
+  position: fixed;
+  left: var(--emi2-sidebar-w);
+  width: calc(100% - var(--emi2-sidebar-w));
+  /* push below the stacked fixed bars */
+  top: calc(var(--emi2-filter-h) + var(--emi2-badges-h) + var(--emi2-heading-h) + (2 * var(--emi2-gap)));
+  bottom: 0;
+  overflow-y: auto;
+  padding: 5px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* ===================== Type blocks & Admin table skin ===================== */
+.emi2-type-block { margin-bottom: 1rem; }
+.emi2-type-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #014f86;
+  margin: 6px 0 10px 12px;
+}
+
+.emi2-loan-card-and-table {
+  /* border: 1px solid #d0d0d0; */
+  border-radius: 5px;
+  padding: 0.5rem 1.2rem;
+  margin: 0 0 1rem 0;
+  background-color: #ffffff;
+
+
+}
+
+.emi2-admin-table-wrapper {
+
+  background-color: #fff;
+  border-radius: 45px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  overflow: auto;
+  
+
+}
+.emi2-admin-table-scroll { min-width: 900px; overflow: auto; }
+
+/* Header tint for EmiTable inside wrapper */
+.emi2-admin-table-wrapper .emi-table thead {
+  background-color: #023D6B;
+  color: #fff;
+}
+.emi2-admin-table-wrapper .emi-table thead th {
+  background-color: #023D6B;
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem;
+}
+
+/* Optional column widths for stability */
+.emi2-admin-table-wrapper .emi-table th:nth-child(1),
+.emi2-admin-table-wrapper .emi-table td:nth-child(1) { width: 40px; }
+.emi2-admin-table-wrapper .emi-table th:nth-child(2),
+.emi2-admin-table-wrapper .emi-table td:nth-child(2) { width: 40px; }
+.emi2-admin-table-wrapper .emi-table th:nth-child(3),
+.emi2-admin-table-wrapper .emi-table td:nth-child(3) { width: 110px; }
+.emi2-admin-table-wrapper .emi-table th:nth-child(4),
+.emi2-admin-table-wrapper .emi-table td:nth-child(4) { width: 90px; }
+.emi2-admin-table-wrapper .emi-table th:nth-child(5),
+.emi2-admin-table-wrapper .emi-table td:nth-child(5) { width: 150px; }
+.emi2-admin-table-wrapper .emi-table th:nth-child(6),
+.emi2-admin-table-wrapper .emi-table td:nth-child(6) { width: 120px; }
+.emi2-admin-table-wrapper .emi-table th:nth-child(7),
+.emi2-admin-table-wrapper .emi-table td:nth-child(7) { width: 220px; }
+.emi2-admin-table-wrapper .emi-table th:nth-child(8),
+.emi2-admin-table-wrapper .emi-table td:nth-child(8) { width: 140px; }
+
+.emi2-admin-table-wrapper .emi-table td.txn {
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+/* ===================== Mobile / Narrow screens ===================== */
+
+@media (max-width: 1111px) {
+  
+
+  
+  .emi2-toggle-filters-btn { display: block; }
+  
+  
+
+  /* Slide-in filter on mobile */
+  .emi2-filter-fixed {
+    position: fixed;
+    top: 50px;
+    right: 0;
+    left: auto;
+    width: 100%;
+    max-width: 320px;
+    z-index: 1500;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    height: auto;
+    padding: 0;
+  }
+  .emi2-filter-fixed.open {
+    transform: translateX(0%);
+    opacity: 1;
+    pointer-events: auto;
+    background-color: #f1f5f8;
+    padding: 1rem;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 30px 0 0 30px;
+    height: calc(100vh - 32vh);
+    overflow-y: auto;
+  }
+  .emi2-filter-card {
+    height: auto;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .emi2-filter-group { width: 100%; }
+
+
+
+
+
+
+
+  
+}
+@media (max-width: 770px) {
+  
+
+  
+  .emi2-toggle-filters-btn { display: block; }
+  
+  
+
+  /* Slide-in filter on mobile */
+  .emi2-filter-fixed {
+    position: fixed;
+    top: 50px;
+    right: 0;
+    left: auto;
+    width: 100%;
+    max-width: 320px;
+    z-index: 1500;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    height: auto;
+    padding: 0;
+  }
+  .emi2-filter-fixed.open {
+    transform: translateX(0%);
+    opacity: 1;
+    pointer-events: auto;
+    background-color: #f1f5f8;
+    padding: 1rem;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 30px 0 0 30px;
+    height: calc(100vh - 32vh);
+    overflow-y: auto;
+  }
+  .emi2-filter-card {
+    height: auto;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .emi2-filter-group { width: 100%; }
+
+  /* Topbar spans full width on mobile */
+  .emi2-topbar-fixed {
+    left: 0;
+    width: 80%;
+    top: 50px; /* keep it pinned at the very top when filter is hidden/off-canvas */
+    padding: 10px 16px;
+    background: #f6faff;
+    border-bottom: 1px solid #e1e7ee;
+    margin: auto 40px;
+
+  }
+
+  .emi2-active-filter-tags {
+    height: auto;
+    padding: 3px 0;
+  }
+  .emi2-section-header-wrapper {
+    height: auto;
+    border-radius: 16px;
+    padding: 8px 12px 10px 12px;
+    margin-top: 16px;
+    width: 95%;
+  }
+
+  /* Scroll area starts below the mobile topbar height (estimate ~110px) */
+  .emi2-content-scroll {
+    left: 0;
+    width: 100%;
+    top: 110px; /* adjust if your heading row gets taller */
+    padding: 12px;
+    margin-left: 1rem;
+    margin-top: 2rem;
+  }
+
+  
+  
+/* ===================== Responsive at 1111px ===================== */
+@media (max-width: 1111px) {
+
+  
+  .emi-page {
+  position: relative;
+  min-height: 100vh;
+
+  font-family: 'Segoe UI', sans-serif;
+
+  /* Always start after the sidebar */
+  margin-left: 330px;     /* reserve space for sidebar */
+  width: calc(100% - 330px);
+  box-sizing: border-box;
+  }
+
+  .emi2-toggle-filters-btn {
+    display: block;
+  }
+
+
+
+  .emi2-filter-fixed {
+    position: fixed;
+    top: 5rem;
+    left: auto;
+    right: 0;
+    width: 100%;
+    max-width: 320px;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    height: auto;
+    padding: 1rem;
+    /* background-color: #f1f5f8; */
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+    border-radius: 30px 0 0 30px;
+    z-index: 1500;
+
+  }
+  .emi2-filter-fixed.open {
+    transform: translateX(0%);
+    opacity: 1;
+    pointer-events: auto;
+    height: calc(100vh - 19rem);
+    overflow-y: auto;
+  }
+
+  .emi2-topbar-fixed {
+    left: 0;
+    width: 100%;
+    padding: 0 12px;
+  }
+
+  .emi2-content-scroll {
+    left: 0;
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .emi2-admin-table-scroll {
+    overflow-x: auto;
+  }
+}
+}
+
+@media (max-width: 932px) {
+  .emi2-content-scroll { padding: 12px; }
+}

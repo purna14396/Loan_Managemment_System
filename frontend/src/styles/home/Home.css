@@ -1,0 +1,871 @@
+
+
+/* 🌍 Global Styles */
+.home-page {
+  margin: 0;
+  padding: 0;
+  padding-top: 35px;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+  background: linear-gradient(to right, #022252, #2355b2);
+}
+
+/* 🌐 Navbar Background Wrapper */
+.lms-nav-fixed-bg {
+  position: fixed;
+  padding-top: 10px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: linear-gradient(to right, #022252, #2355b2);
+
+  backdrop-filter: blur(100px);
+}
+
+/* 🌐 Navbar Container */
+.lms-navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.lms-logo h2 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  letter-spacing: 1px;
+
+  /* ✨ Golden & white mix with movement */
+  background: linear-gradient(
+    270deg,
+    #3b7294,
+    #e6f1ff,
+    #5a90cd,
+    #ffffff
+  );
+  background-size: 300% 300%;
+  animation: logoGlow 6s ease-in-out infinite;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* 🌟 Soft and balanced glow */
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.2),
+               0 0 2px rgba(255, 255, 255, 0.15);
+
+  cursor: default;
+}
+
+@keyframes logoGlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+.navbar-divider {
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 6px;
+  border: none;
+  border-bottom: 3px solid #8EBAE5;
+}
+
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: #8EBAE5;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* 🔐 Login CTA with Gradient */
+nav ul li .login-nav-btn {
+  background: linear-gradient(to right, #6791d0, #82a9f1);
+  padding: 0.4rem 1.2rem;
+  border-radius: 6px;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.login-nav-btn{
+  margin-top: -3px;
+}
+
+nav ul li .login-nav-btn:hover {
+  text-decoration: none;
+  transform: scale(1.07);
+
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* 🦸 Hero Section */
+.lms-hero-container {
+  color: white;
+  text-align: center;
+  padding: 10rem 6rem 6rem; /* extra top padding for fixed navbar */
+  
+
+}
+
+.lms-hero-content {
+  max-width: 60%;
+  margin: 0 auto;
+
+}
+
+.lms-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+
+}
+
+.lms-hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  background-color: #031d45;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 12px rgba(3, 29, 69, 0.5), 0 4px 20px rgba(3, 29, 69, 0.4);
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+/* 💳 Loan Types */
+.lms-loan-list {
+  background-color: #c5cbd0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+  padding: 1rem 5rem;
+  margin-top: 5px;
+  
+}
+
+.loan-types-heading {
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-top: 10px;
+  color: #022252;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+.lms-loan-card {
+  background: rgba(147, 159, 163, 0.95);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 280px;
+  height: 250px; /* ✅ consistent card height */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lms-loan-card img {
+  width: 100%;
+  height: 130px;
+  object-fit: contain;  /* ✅ Prevents cropping */
+  padding: 10px;         /* ✅ Adds breathing room */
+  background-color: #f0f4f8;  /* optional soft background */
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.lms-loan-card h3 {
+  font-size: 1.2rem;
+  margin: 1rem 1rem 0.5rem;
+  color: #023D6B;
+}
+
+.lms-loan-card p {
+  font-size: 0.95rem;
+  margin: 0 1rem 1rem;
+  color: #333;
+}
+
+.lms-loan-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* 🔹 Darker but tighter */
+}
+
+/* ♻️ Auto-scrolling Loan Cards */
+.lms-loan-scroll-wrapper {
+  overflow: hidden;
+  padding: 2rem 0;
+  position: relative;
+  background-color: #c5cbd0;
+  width: 95%;
+}
+
+.lms-loan-scroll {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scrollLeft 30s linear infinite;
+}
+
+.lms-loan-scroll:hover,
+.lms-loan-scroll:active {
+  animation-play-state: paused;
+}
+
+
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+
+/* 👥 About Section */
+.lms-about-container {
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+#about h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+#about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.9rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.lms-slogan {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 5rem;
+  padding-bottom: 40px;
+  border-bottom: 4px solid #8EBAE5;
+}
+
+/* 📩 Contact Section */
+.lms-contact-container {
+  padding: 2rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.lms-contact-wrapper {
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  background: rgb(237, 234, 234);
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.lms-contact-wrapper h2 {
+  text-align: center;
+  color: #022252;
+  font-size: 2rem;
+  margin-bottom: 5px;
+  text-decoration: underline;
+
+}
+
+.lms-contact-wrapper p {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #022252;
+  
+}
+
+.lms-contact-wrapper a {
+  color: #022252;
+  text-decoration: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row input {
+  width: 100%;
+}
+
+form input,
+form select,
+form textarea {
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 🟡 Loan Type Row Styling */
+.loan-select-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.loan-select-inline {
+  align-items: center;
+}
+
+.loan-select-inline label {
+  white-space: nowrap;
+  font-weight: 500;
+  color: #022252;
+  min-width: 180px; /* ✅ control label width */
+}
+
+.loan-select-inline select {
+  flex: 1;
+}
+
+
+/* 🟡 Query Textarea */
+form textarea.query-textarea {
+  height: 100px;
+  resize: vertical;
+  margin-top: -0.5rem; /* aligns it snug with spacing */
+}
+
+/* 🟡 Labels */
+form label {
+  font-weight: 500;
+  color: #022252;
+}
+
+/* 🟢 Button */
+form button {
+  padding: 0.8rem;
+  background-color: #023D6B;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 150px;
+  align-self: center;
+}
+
+form button:hover {
+  background-color: #031d45;
+}
+
+
+/* 🔐 Login CTA Section */
+.lms-login-cta {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+/* 🔢 EMI Calculator Floating Button */
+/* 🔢 EMI Calculator Floating Button */
+.emi-float {
+  position: fixed;
+  bottom: 70px;
+  right: 50px;
+  z-index: 999;
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 50%;
+  background: rgb(195, 195, 195); /* smoky grey */
+  backdrop-filter: blur(12px); /* blurred glass effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.emi-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.emi-float img {
+  width: 60px;
+  height: 60px;
+  filter: brightness(0.1); /* make black stand out */
+}
+
+
+.emi-float:hover {
+  transform: scale(1.1);
+}
+
+
+/* 🧮 EMI Calculator Modal */
+.emi-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emi-modal {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  animation: fadeInPop 0.4s ease;
+}
+
+.emi-modal h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #022252;
+}
+
+.emi-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.emi-modal input,
+.emi-modal select {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+
+}
+
+/* Primary Button Styles */
+.emi-modal button {
+  padding: 0.8rem;
+  background-color: #022252;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.emi-modal button:hover {
+  background-color: #1b3d7c;
+}
+
+/* Secondary Close Button */
+.emi-modal .close-btn {
+  background-color: #6c757d;
+  margin-top: auto;
+}
+
+.emi-modal .close-btn:hover {
+  background-color: #5a6268;
+}
+
+/* EMI Result Box */
+.emi-result {
+  margin-top: 1rem;
+  background-color: #f4f6fa;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #022252;
+}
+
+/* 🧾 EMI Table Styling */
+.emi-result table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.emi-result td {
+  padding: 2px 3px;
+  vertical-align: top;
+}
+
+.emi-result td:first-child {
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.emi-result td:last-child {
+  text-align: right;
+}
+
+.emi-result hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 5px 0;
+}
+
+/* 📐 Buttons Row */
+.emi-button-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+/* Equal width for both buttons */
+.emi-button-row button {
+  flex: 1;
+}
+
+/* 👋 Entrance Animation */
+@keyframes fadeInPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+
+/* 🦶 Footer */
+.lms-footer-container {
+  background-color: #022252;
+}
+
+footer {
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+
+/* 🧠 Responsive: Medium Screens (≤ 1024px) */
+@media (max-width: 1334px) {
+  .lms-navbar {
+    padding: 1rem;
+    width: 80%;
+    
+  }
+  .navbar {
+    width: 75%;
+    margin: 0 auto;
+    margin: 0 100px;
+
+    border: none;
+    border-bottom: 3px solid #8EBAE5;
+  }
+
+  .lms-hero-content {
+    max-width: 80%;
+  }
+
+  .lms-loan-list {
+    gap: 2rem;
+    padding: 3rem 2rem;
+  }
+
+  .lms-loan-card {
+    width: 240px;
+    height: 230px;
+  }
+
+  .loan-types-heading {
+    font-size: 2rem;
+  }
+
+  .lms-hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .lms-hero-content p {
+    font-size: 1.1rem;
+  }
+}
+
+/* 📱 Responsive: Tablets & Large Phones (≤ 768px) */
+/* @media (max-width: 768px) { */
+@media (max-width: 950px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #023D6B;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    padding: 1rem;
+    width: 200px;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .lms-navbar {
+    flex-direction: row;
+    padding: 0.8rem 1rem;
+  }
+
+  .lms-hero-container {
+    padding: 8rem 2rem;
+  }
+
+  .lms-hero-content {
+    max-width: 75%;
+  }
+
+  .lms-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .lms-hero-content p {
+    font-size: 1rem;
+  }
+
+  .lms-loan-list {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    padding-left: 5rem;
+  }
+
+  .lms-loan-card {
+    width: 90%;
+    height: auto;
+  }
+
+  .loan-types-heading {
+    font-size: 1.8rem;
+    margin-top: 0;
+  }
+
+  .lms-contact-wrapper {
+    padding: 1.5rem;
+  }
+}
+
+/* 📱 Responsive: Small Mobile Devices (≤ 480px) */
+@media (max-width: 480px) {
+  .lms-navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .lms-logo h2 {
+    font-size: 1.5rem;
+  }
+
+  .lms-hero-container {
+    padding: 6rem 1rem;
+  }
+
+  .lms-hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .lms-hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .lms-loan-card {
+    width: 100%;
+    height: auto;
+  }
+  .lms-loan-list {
+    flex-direction: column;
+
+    margin:auto;
+    margin-left: -35px;
+  }
+  .lms-loan-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .lms-loan-card p {
+    font-size: 0.9rem;
+  }
+
+  .loan-types-heading {
+    font-size: 1.6rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .emi-float {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .emi-float img {
+    width: 50px;
+    height: 50px;
+  }
+
+
+  .emi-modal {
+    padding: 1rem 1rem;
+    max-width: 95%;
+  }
+
+  .emi-modal h2 {
+    font-size: 1.5rem;
+  }
+
+  .emi-modal input,
+  .emi-modal select {
+    font-size: 0.95rem;
+    padding: 0.5rem;
+  }
+
+  .emi-modal button {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+
+  .emi-result table {
+    font-size: 0.9rem;
+  }
+
+  .emi-button-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .emi-button-row button {
+    width: 100%;
+  }
+
+
+
+
+  form button {
+    width: 100%;
+  }
+
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .whatsapp-float img {
+    width: 50px;
+    height: 50px;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+}

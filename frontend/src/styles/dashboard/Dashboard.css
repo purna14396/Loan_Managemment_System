@@ -1,0 +1,169 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+  width: 330px;
+  background-color: #022252;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  justify-content: space-between;
+}
+
+.dashboard-user-info {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.dashboard-user-icon {
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-user-info p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.dashboard-user-info h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 0.3rem;
+}
+
+.dashboard-divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 1rem 0;
+}
+
+/* Navigation */
+.dashboard-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dashboard-nav button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 🔵 Hover background instead of text color */
+.dashboard-nav button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+/* ✅ Active state */
+.dashboard-nav button.active {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  font-weight: 600;
+}
+
+/* Optional: Icon sizing fix */
+.dashboard-nav button svg {
+  min-width: 20px;
+  height: 20px;
+}
+
+/* Logout */
+.dashboard-logout {
+  margin-top: auto;
+  text-align: left;
+}
+
+/* Main content */
+.dashboard-main {
+  flex: 1;
+  padding: 0 2rem;
+  background-color: #f3f9ff;
+  overflow-y: auto;
+}
+
+/* ☰ Hamburger Toggle Button */
+
+.dashboard-toggle-btn {
+  display: none;
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  font-size: 2.2rem; /* ⬅️ Make it bigger */
+  font-weight: 700;   /* ⬅️ Make it bold */
+  color: #022252;
+  background: transparent;
+  border: none;
+  z-index: 1111;
+  cursor: pointer;
+}
+
+/* Overlay that appears behind the sidebar */
+.dashboard-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+/* 🎯 Sidebar Responsive Style */
+@media (max-width: 770px) {
+  .dashboard-container {
+    position: relative;
+  }
+
+  .dashboard-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    background-color: #022252;
+    transition: left 0.3s ease;
+    z-index: 1111;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
+  }
+
+  .dashboard-sidebar.show {
+    left: 0;
+  }
+
+  .dashboard-main {
+    padding: 1rem;
+    width: 100%;
+    padding-top: 3rem;
+    padding-left: 2rem;
+  }
+
+  .dashboard-toggle-btn {
+    display: block;
+  }
+
+  .dashboard-overlay.show {
+    display: block;
+  }
+}
+
+

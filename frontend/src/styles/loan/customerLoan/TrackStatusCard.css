@@ -1,0 +1,363 @@
+/* ===== Progress Bar Wrapper ===== */
+.track-status-modal-progress-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background: #e0e0e0;
+  border-radius: 50px;
+  margin-bottom: 2rem;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* ===== Container for track, fill & steps ===== */
+.progress-container {
+  position: relative;
+  width: 95%;
+  max-width: 95%;
+  height: 70px;
+  margin-left: 2rem;
+  margin-right: 1.5rem;
+
+}
+
+/* ===== Background Track ===== */
+.progress-track {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #cbd5e0;
+  border-radius: 50px;
+  z-index: 1;
+}
+
+/* ===== Filled Progress ===== */
+.progress-fill {
+  position: absolute;
+  top: 20px;
+  left: -30px;
+  height: 4px;
+  background-color: #28a745;
+  border-radius: 50px;
+  z-index: 2;
+  transition: width 0.3s ease-in-out;
+}
+
+
+
+/* ===== Each Step (fixed position by percentage) ===== */
+.progress-step {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 3;
+}
+
+.progress-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #9d9d9d;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.progress-icon.completed {
+  background-color: #28a745;
+}
+
+.progress-icon.rejected {
+  background-color: #dc3545;
+}
+
+.progress-icon:hover {
+  transform: scale(1.1);
+}
+
+.progress-icon.closed-icon-blue {
+  background-color: #1668be; /* Blue background for closed stage */
+  color: white;
+}
+
+
+.progress-label {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ===== Comments Wrapper ===== */
+.track-status-modal-comments-wrapper {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  background: #f8fbff;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 8px 8px;
+}
+
+.track-status-modal-comment-col {
+  flex: 1;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.track-status-modal-comment-col:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Column-specific colors ===== */
+.info-col {
+  border-left: 4px solid #3a69a4;
+  background: #f0fff4;
+}
+
+
+.closed-col {
+  border-left: 4px solid #6c757d;
+  background: #f8f9fa;
+}
+
+.track-status-comment-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+.track-status-comment-time {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.track-status-comment-message {
+  margin: 0;
+  line-height: 1.5;
+}
+
+
+/* ===== Decision Column Matching Info & Closed Style ===== */
+.decision-col {
+  background: white; /* Default white background like others */
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Approved Style */
+.decision-col {
+  border-left: 4px solid #28a745; /* Green border */
+  background: #f0fff4; /* Light green background */
+}
+/* Approved Style */
+.decision-col.approved {
+  border-left: 4px solid #28a745; /* Green border */
+  background: #f0fff4; /* Light green background */
+}
+
+/* Rejected Style */
+.decision-col.rejected {
+  border-left: 4px solid #dc3545; /* Red border */
+  background: #fff5f5; /* Light red background */
+}
+
+/* Hover effect same as other columns */
+.decision-col:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Header */
+.track-status-comment-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+/* Time */
+.track-status-comment-time {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+/* Message */
+.track-status-comment-message {
+  margin: 0;
+  line-height: 1.5;
+}
+
+
+/* ===== Responsive adjustments for <= 1050px ===== */
+@media (max-width: 1050px) {
+
+  /* Reduce padding and curve for progress wrapper */
+  .track-status-modal-progress-wrapper {
+    padding: 20px;
+    border-radius: 30px;
+    margin: 10px;
+  }
+
+  /* Make progress container take more width & reduce margins */
+  .progress-container {
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    height: 60px;
+  }
+
+  /* Shrink icon size for better fit */
+  .progress-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+  /* Adjust label font size */
+  .progress-label {
+    font-size: 12px;
+    margin-top: 6px;
+  }
+
+  /* Reduce gap & padding in comments wrapper */
+  .track-status-modal-comments-wrapper {
+    gap: 10px;
+    padding: 15px;
+  }
+
+  /* Slightly smaller padding in comment columns */
+  .track-status-modal-comment-col {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .track-status-comment-header {
+    font-size: 14px;
+  }
+
+  .track-status-comment-time {
+    font-size: 11px;
+  }
+  
+  .decision-col {
+    padding: 12px;
+    font-size: 13px;
+  }
+  .track-status-comment-header {
+    font-size: 14px;
+  }
+  .track-status-comment-time {
+    font-size: 11px;
+  }
+}
+
+
+/* ===== Responsive adjustments for <= 900px ===== */
+@media (max-width: 900px) {
+
+  /* Progress wrapper compact */
+  .track-status-modal-progress-wrapper {
+    padding: 15px;
+    border-radius: 25px;
+    margin: 10px;
+  }
+
+  /* Progress container shorter */
+  .progress-container {
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 0.8rem;
+    height: 50px;
+  }
+
+  /* Icons smaller */
+  .progress-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  /* Labels smaller & closer */
+  .progress-label {
+    font-size: 10px;
+    margin-top: 4px;
+  }
+
+  /* Filled bar thickness reduced */
+  .progress-track,
+  .progress-fill {
+    top: 15px;
+    height: 3px;
+    width: 95%;
+  }
+
+  /* Comments wrapper tighter */
+  .track-status-modal-comments-wrapper {
+    gap: 8px;
+    padding: 12px;
+    
+  }
+
+  /* Comment columns compact */
+  .track-status-modal-comment-col {
+    padding: 10px;
+    font-size: 12px;
+
+  }
+
+  .track-status-comment-header {
+    font-size: 13px;
+  }
+
+  .track-status-comment-time {
+    font-size: 10px;
+  }
+
+  .track-status-comment-message {
+    font-size: 12px;
+  }
+  
+  .decision-col {
+    padding: 10px;
+    font-size: 12px;
+  }
+  .track-status-comment-header {
+    font-size: 13px;
+  }
+  .track-status-comment-time {
+    font-size: 10px;
+  }
+  .track-status-comment-message {
+    font-size: 12px;
+  }
+}

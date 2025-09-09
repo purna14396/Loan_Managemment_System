@@ -1,0 +1,794 @@
+/* 🌐 Main Page Wrapper */
+.loan-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  background-color: #f3f9ff;
+  
+}
+
+/* 🔍 Fixed Filter Section */
+.loan-filter-fixed {
+  position: fixed;
+  top: 0;
+  left: 330px;
+  width: calc(100% - 330px);
+  z-index: 100;
+  background: transparent;
+  padding: 1rem 2rem;
+}
+
+/* 🔍 Filter Card Layout */
+.loan-filter-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+
+  background-color: #dcdee0;
+  
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.loan-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 80px;
+  flex: 1;
+}
+
+.loan-filter-group-button {
+  display: flex;
+  align-items: flex-end;
+}
+
+.loan-filter-card label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.no-applications-message {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #777;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin: 2rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.loan-filter-input {
+  padding: 0.65rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background-color: #fff;
+}
+
+
+/* 📄 Section Header (Applications, count) */
+.loan-section-header-wrapper {
+
+  padding: 0 1rem 0 1rem;
+  background-color: #f6faff;
+  border-left:1px solid rgb(208, 208, 208);
+  border-right:1px solid rgb(208, 208, 208);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin-top: 8rem;
+}
+
+.loan-section-heading {
+  font-size: 1.5rem;
+  color: #023D6B;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.loan-count-label {
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* 🔖 Active Filter Tags Wrapper */
+.active-filter-tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  margin-top: 1rem;
+
+}
+
+/* 🏷️ Individual Tag Badge */
+.filter-badge {
+  background-color: #e3f2fd; /* Light Blue */
+  color: #023D6B;
+  font-weight: 500;
+  padding: 0.4rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  display: inline-block;
+  border: 1px solid #90caf9;
+}
+
+.clear-filters-inline {
+  display: flex;
+  align-items: center;
+
+}
+
+
+.loan-filter-clear-btn {
+  background-color: #69737c;         /* ✅ Final base color */
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;              /* ✅ Keep padding for button size */
+  border-radius: 8px;                /* ✅ Slightly rounded corners */
+  font-weight: 600;                  /* ✅ Bold label */
+  font-size: 0.9rem;                /* ✅ Slightly larger font */
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.loan-filter-clear-btn:hover {
+  background-color: #495057;         /* ✅ Darker hover effect */
+}
+
+
+/* 🌀 Scrollable Loan Cards Only */
+.loan-cards-scroll-wrapper {
+
+  height: calc(100vh - 180px); /* viewport - filter - heading */
+  overflow-y: auto;
+  padding: 1rem 3rem 2rem 0rem;
+  background-color: #f8fbff;
+}
+
+/* 💳 Loan Card Styles */
+.loan-card-ui {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid #d0d0d0;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  background-color: #f3f5f6;
+  transition: box-shadow 0.3s;
+}
+
+.loan-card-ui:hover {
+  box-shadow: 0 8px 15px rgba(30, 30, 30, 0.08);
+}
+
+.loan-card-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 240px;
+}
+
+.loan-card-left img {
+  width: 60px;
+  height: 60px;
+  margin-right: 1rem;
+  border-radius: 10px;
+  object-fit: fill;
+  background-color: #eee;
+}
+
+.loan-title {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #023D6B;
+  margin-bottom: 0.5rem;
+}
+
+.loan-id,
+.loan-applied-date {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.loan-card-middle {
+  flex: 1;
+  padding: 0 1rem;
+  min-width: 200px;
+}
+
+.loan-label {
+  font-size: 0.8rem;
+  color: #777;
+
+}
+
+.loan-amount {
+  font-size: 1.1rem;
+  color: #023D6B;
+  margin: 0.3rem 0;
+}
+
+.loan-purpose {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.loan-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8rem;
+  min-width: 150px;
+  
+}
+
+.loan-status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 0.8rem;
+  text-align: center;
+  border: 1px solid rgb(218, 218, 218);
+}
+
+.loan-status-badge.submitted {
+  background-color: #e6f2ff;  /* Light blue */
+  color: #084298;             /* Blue text */
+}
+
+.loan-status-badge.approved {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.loan-status-badge.rejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.loan-status-badge.closed {
+  background-color: #e2e3e5;  /* Light gray */
+  color: #383d41;             /* Dark gray text */
+}
+
+
+.loan-action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.view-btn,
+.track-btn {
+  background-color: #023D6B;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 0.9rem;
+}
+
+.view-btn:hover,
+.track-btn:hover {
+  background-color: #03529c;
+}
+
+/* 🧾 Modal */
+.loan-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 330px;
+  width: calc(100% - 330px);                           /* ← Full width always */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  background: rgba(0, 123, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.loan-modal-content {
+  min-width: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* ✅ Soft modal shadow */
+  border-radius: 30px; /* optional - gives rounded corners */
+}
+
+
+/* EMI Schedule button styling */
+.emi-btn {
+  background-color: #023D6B;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 0.9rem;
+}
+
+.emi-btn:hover:not(:disabled) {
+  background-color: #03529c;
+}
+
+.emi-btn:disabled {
+  background-color: #023D6B; /* softer grey for disabled */
+  color: #fffdfd;
+  cursor: not-allowed;
+}
+
+/* Custom Tooltip Wrapper */
+.emi-btn-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip Box */
+.emi-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  width: max-content;
+  max-width: 200px;
+  background-color: #4e606f;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  position: absolute;
+  z-index: 10;
+  bottom: 125%; /* Above the button */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Button Style */
+.icon-btn {
+  background-color: #023D6B;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background-color: #03529c;
+}
+
+/* view details Tooltip Wrapper */
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip Text */
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+
+  background-color: #4e606f;
+  color: #fff;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 125%; /* Above button */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Tooltip Arrow */
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #023D6B transparent transparent transparent;
+}
+
+/* Show tooltip on hover */
+.tooltip-wrapper:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* Arrow for tooltip */
+.emi-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #023D6B transparent transparent transparent;
+}
+
+/* Show tooltip on hover */
+.emi-btn-wrapper:hover .emi-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.loan-filter-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+
+
+
+/* 👇 Toggle Filter Button (Visible on Small Screens Only) */
+.toggle-filters-btn {
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #023D6B;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 2000;
+  font-size: 0.9rem;
+  border: none;
+}
+
+.modal-open .toggle-filters-btn {
+  display: none !important;
+}
+
+
+/* ❌ Close Button in Modal */
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+  z-index: 1000;
+}
+
+.close-icon:hover {
+  color: #d32f2f;
+  transform: scale(1.1);
+}
+
+
+  
+@media (max-width: 1111px) {
+  .loan-filter-fixed {
+    position: fixed;
+    top: 50px;
+    right: 0;
+    left: auto;
+    width: 100%;
+    max-width: 320px;
+    z-index: 1500;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+
+  
+
+  .loan-filter-fixed.open {
+    transform: translateX(0%);
+    opacity: 1;
+    pointer-events: auto;
+    background-color: #f1f5f8;
+    padding: 1rem;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 30px 0 0 30px;
+    height: calc(100vh - 32vh);
+    overflow-y: auto;
+  }
+
+
+  .toggle-filters-btn {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 2000;
+    background-color: #023D6B;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  .loan-section-header-wrapper {
+    padding-top: 3rem !important;
+    margin-right: -2rem;
+    margin-top: 1rem;
+  }
+
+  .loan-filter-card {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .loan-filter-group {
+    width: 100%;
+  }
+
+  /* 🔧 Card Layout: Split into top and bottom rows */
+  .loan-card-ui {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .loan-card-left,
+  .loan-card-middle {
+    width: 10%;
+
+  }
+
+  .loan-card-right {
+    width: 100%;
+    margin-top: 2.5rem;
+    align-items: flex-start;
+    
+  }
+
+  .loan-card-left img {
+    width: 48px;
+    height: 48px;
+    margin-right: 1rem;
+  }
+
+  .loan-card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .loan-status-badge {
+    align-self: flex-start;
+  }
+
+  .loan-action-buttons {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .loan-action-buttons button {
+    min-width: 120px;
+  }
+}
+
+
+@media (max-width: 932px) {
+  
+  .loan-cards-scroll-wrapper{
+
+    margin-left: -1rem;
+  }
+  .loan-filter-fixed.open {
+    border-radius: 30px 0 0 30px;
+
+  }
+  
+  .loan-card-ui {
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .loan-card-left,
+  .loan-card-middle,
+  .loan-card-right {
+    width: 100%;
+    padding: 0;
+
+  }
+
+  .loan-card-left {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .loan-card-left img {
+    width: 48px;
+    height: 48px;
+    margin-right: 1rem;
+  }
+
+  .loan-card-middle {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .loan-card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .loan-status-badge {
+    align-self: flex-start;
+  }
+
+  .loan-action-buttons {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .loan-action-buttons button {
+    min-width: 100px;
+  }
+
+  .loan-cards-scroll-wrapper {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 872px) {
+  
+  .loan-section-header-wrapper {
+
+    margin-right: -1.5rem;
+    margin-left: -0.2rem;
+    margin-top: -1rem;
+  }
+
+  
+  .loan-filter-fixed.open {
+    border-radius: 30px 0 0 30px;
+
+  }
+  
+  .loan-card-ui {
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0rem;
+  }
+
+  .loan-card-left,
+  .loan-card-middle,
+  .loan-card-right {
+    width: 100%;
+    padding: 0;
+    
+
+  }
+  
+  .loan-card-middle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0rem;
+    margin-left: 4rem;
+
+  }
+  
+  .loan-card-left img {
+    width: 48px;
+    height: 48px;
+    margin-right: 1rem;
+  }
+
+
+  .loan-card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-top: 2rem;
+  }
+
+  .loan-status-badge {
+    align-self: flex-start;
+  }
+
+  .loan-action-buttons {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .loan-action-buttons button {
+    min-width: 100px;
+  }
+
+  .loan-cards-scroll-wrapper {
+    padding: 1rem;
+  }
+  
+}
+
+@media (max-width: 770px) {
+  /* 🧾 Modal */
+  .loan-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    background: rgba(0, 123, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(6px);
+    padding-top: 15rem;
+    padding-left: 1.8rem;
+    padding-right: 0.5rem;
+    padding-bottom: 10rem;
+    
+    
+  }
+  
+  .loan-modal-content{
+    height: 95vh;
+    min-width: 80%;
+    overflow-y: scroll;
+    padding-bottom: 5rem;
+  }
+  
+  .loan-filter-fixed.open {
+    border-radius: 30px 0 0 30px;
+
+  }
+}

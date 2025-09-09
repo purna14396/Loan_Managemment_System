@@ -1,0 +1,271 @@
+/* 📦 Apply Loan Form Wrapper */
+.apply-loan-form {
+  max-width: 900px;
+  margin: 1.5rem auto;
+  padding: 1rem 2.5rem;
+  background: #fff;
+  border-left: 6px solid #023D6B;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2.5rem;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.apply-loan-form h2 {
+  grid-column: 1 / -1;
+  color: #023D6B;
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+}
+
+
+
+
+
+
+/* Labels */
+.apply-loan-form label {
+  font-weight: 600;
+  color: #023D6B;
+  margin-bottom: 0.3rem;
+  margin-top: 0.8rem;
+  display: block;
+  font-size: 1rem;
+}
+
+/* Inputs, Select, Textarea */
+.apply-loan-form input,
+.apply-loan-form select,
+.apply-loan-form textarea {
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1.8px solid #ccc;
+  width: 100%;
+  background-color: #f7f9fc;
+  box-sizing: border-box;
+  resize: vertical;
+  font-weight: 500;
+  color: #222;
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+.apply-loan-form input:focus,
+.apply-loan-form select:focus,
+.apply-loan-form textarea:focus {
+  outline: none;
+  border-color: #6da8ff;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+  background-color: #fff;
+}
+
+/* Editable background */
+.apply-loan-form input:read-write,
+.apply-loan-form select:read-write,
+.apply-loan-form textarea:read-write {
+  background-color: #fff;
+}
+
+/* Button container */
+.form-button-group {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.cibil-score {
+  display: flex;
+}
+
+/* Submit button */
+.apply-loan-form .btn-submit {
+  padding: 0.85rem 2rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  background-color: #023D6B;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.apply-loan-form .btn-submit:hover,
+.apply-loan-form .btn-submit:focus {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(2, 61, 107, 0.4);
+  outline: none;
+}
+
+/* Reset button */
+.apply-loan-form .btn-reset {
+  padding: 0.85rem 2rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.apply-loan-form .btn-reset:hover,
+.apply-loan-form .btn-reset:focus {
+  background-color: #e0e0e0;
+  border-color: #888;
+}
+
+
+/* Responsive: Tablets and below */
+@media (max-width: 1050px) {
+  .apply-loan-form {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 2rem;
+    margin-left: 2rem;
+  }
+
+
+}
+
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* semi-transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+  z-index: 1000;
+
+  /* ✅ Blur everything behind modal */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Modal Content */
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  animation: slideUp 0.4s ease-out;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.modal-content h2 {
+  color: #023D6B;
+  margin-bottom: 1rem;
+}
+
+.close-btn {
+  background: #023D6B;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s;
+}
+
+.close-btn:hover {
+  background: #03508d;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+/* Modal Table Styling */
+.modal-table {
+  width: 100%;
+  margin: 1.5rem auto;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  background: #f9fbfd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.modal-table th,
+.modal-table td {
+  padding: 0.4rem 1rem;
+  text-align: left; /* ✅ Align data left */
+}
+
+.modal-table th {
+  width: 40%;
+  font-weight: 700;
+  color: #023D6B;
+  background: #eef5fb;
+}
+
+.modal-table td {
+  font-weight: 500;
+  color: #222;
+}
+
+/* Add row separators */
+.modal-table tr:not(:last-child) td,
+.modal-table tr:not(:last-child) th {
+  border-bottom: 1px solid #d8e3ec;
+}
+
+/* Center the table in modal */
+.modal-content {
+  text-align: center; /* heading centered */
+}
+
+.modal-content table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cibil-highlight {
+  font-size: 2rem;          /* Bigger font */
+  font-weight: 800;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.cibil-highlight span {
+  font-weight: 900;
+}
+
+/* Dynamic colors */
+.cibil-red {
+  color: #d32f2f;          /* Red */
+}
+
+.cibil-yellow {
+  color: #f9a825;          /* Yellow */
+}
+
+.cibil-green {
+  color: #2e7d32;          /* Green */
+}

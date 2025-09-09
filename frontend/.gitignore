@@ -1,0 +1,18 @@
+# Node modules and build
+/node_modules/
+/build/
+/dist/
+
+# React environment config
+.env
+.env.local
+.env.production
+.env.development
+
+# Logs
+*.log
+
+# IDE files
+.idea/
+*.iml
+

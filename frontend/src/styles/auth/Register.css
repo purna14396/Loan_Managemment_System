@@ -1,0 +1,461 @@
+/* 🔁 CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🌌 Outer Page Wrapper with Gradient */
+.register-page {
+  min-height: 100vh;
+  background: linear-gradient(to right, #022252, #2355b2);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* 📦 Register Container */
+.auth-container {
+  width: 100%;
+  max-width: 700px;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  overflow-y: auto;
+  max-height: 95vh;
+}
+
+/* Hide scrollbar */
+.auth-container::-webkit-scrollbar {
+  width: 0;
+}
+.auth-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 🔠 Heading (Fixed) */
+.register-page .auth-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #022252;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* 🧾 Form Layout */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🧩 Two-Column Grid for Desktop */
+.form-grid {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.left-column,
+.right-column {
+  flex: 1 1 48%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* 🏷️ Labels and Groups */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem; /* more breathing room */
+  min-height: 90px; /* ensures space for strength & aligns rows */
+}
+
+.left-column .input-group {
+  margin-bottom: 1.5rem;
+}
+.right-column .input-group {
+  margin-bottom: 1.1rem;
+}
+
+.input-group label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #444;
+  min-height: 24px; /* same height for all labels */
+  display: flex;
+  align-items: center;
+}
+
+
+/* ✏️ Inputs */
+
+
+
+.left-column .input-group input {
+  height: 47px; /* ⬆ Increase input height */
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #333;
+  box-sizing: border-box;
+}
+.right-column .input-group input {
+  height: 47px; /* ⬆ Increase input height */
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #333;
+  box-sizing: border-box;
+}
+
+
+
+.auth-input:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+  background-color: #fff;
+}
+
+
+.register-page input:focus,
+.register-page select:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+  background-color: #fff;
+}
+.register-page input,
+.register-page select {
+  transition: all 0.3s ease-in-out;
+}
+
+.auth-input-role {
+  
+  margin-top: 0.3rem;
+}
+
+.auth-input::placeholder {
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+select.auth-input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff; /* cleaner background */
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  appearance: none;
+}
+
+
+.auth-input:focus,
+select.auth-input:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+  background-color: #ffffff;
+}
+
+/* 👁️ Password Fields */
+.password-group {
+  position: relative;
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 2.7rem;
+  height: 48px; /* match other inputs */
+}
+
+
+.eye-icon {
+  position: absolute;
+  right: 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease-in-out;
+  color: #555;
+}
+
+.eye-icon.open {
+  transform: scale(1.2);
+}
+
+/* 🔒 Strength Label */
+.password-strength {
+  height: 1.1em; /* fixed height */
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+
+/* ❗ Error */
+.error-text {
+  color: #d32f2f;
+  font-size: 0.88rem;
+  margin-top: 4px;
+  font-weight: 500;
+  animation: fadeIn 0.2s ease-in;
+}
+
+/* 🧵 Auth Button */
+.auth-button {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(to right, #022252, #2355b2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  height: 60px;
+}
+
+.auth-button:hover {
+  transform: scale(1.03);
+}
+
+.auth-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* 🔁 Switch Links */
+.switch-link {
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  color: #444;
+  text-align: center;
+}
+
+.login-link {
+  color: #0d6efd;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+  color: #0a58ca;
+}
+
+/* 🌟 Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔐 Admin Key Modal */
+.modal-overlay-auth {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-content input:focus {
+  border-color: #0d6efd;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+  outline: none;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cancel-btn,
+.save-btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.cancel-btn:hover {
+  background-color: #bbb;
+}
+
+.save-btn {
+  background-color: #3179ff;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #2563eb;
+}
+
+/* 📱 Medium Desktop / Tablets (≤ 1024px) */
+@media (max-width: 1024px) {
+  .auth-container {
+    padding: 1.8rem;
+    max-width: 85%;
+  }
+
+  .register-page .auth-heading {
+    font-size: 2rem;
+  }
+
+  .auth-button {
+    height: 55px;
+  }
+}
+
+/* 📱 Tablets / Landscape Phones (≤ 768px) */
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 1.5rem 1rem;
+    max-width: 85%;
+  }
+
+  .register-page .auth-heading {
+    font-size: 1.8rem;
+  }
+
+  .form-grid {
+    flex-direction: column;
+    padding: 0 15px;
+  }
+
+  .left-column,
+  .right-column {
+    flex: 1 1 100%;
+  }
+
+  .auth-button {
+    font-size: 0.95rem;
+    height: 52px;
+  }
+
+  .auth-input {
+    font-size: 0.95rem;
+
+  }
+
+  .modal-content {
+    padding: 1.8rem;
+  }
+}
+
+/* 📱 Mobile Devices (≤ 480px) */
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 1rem;
+    max-height: none;
+    height: auto;
+  }
+
+  .register-page .auth-heading {
+    font-size: 1.6rem;
+  }
+
+  .auth-button {
+    font-size: 0.9rem;
+    height: 48px;
+  }
+
+  .auth-input {
+    font-size: 0.9rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .eye-icon {
+    font-size: 1rem;
+    right: 0.8rem;
+  }
+
+  .modal-content {
+    padding: 1.2rem;
+    width: 80%;
+  }
+
+  .cancel-btn,
+  .save-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}

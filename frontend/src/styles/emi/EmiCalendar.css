@@ -1,0 +1,220 @@
+/* Container styling */
+.emi-calendar-container {
+  padding: 0;
+  background: transparent;
+  border-radius: 18px;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 340px;
+  max-width: 420px;
+  /* border: 3px solid #023d6b; */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Remove the colored space between border and outermost layer */
+.emi-calendar-container::before {
+  content: none;
+}
+
+/* Calendar header */
+.emi-calendar-container h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ccc;
+  margin-bottom: 0;
+  letter-spacing: 0.5px;
+  background: #12457b; /* match dashboard card color */
+  width: 100%;
+  text-align: center;
+  border-radius: 15px 15px 0 0;
+  padding: 16px 0 13px 0;
+  box-shadow: none;
+}
+
+/* React Calendar overrides */
+.emi-calendar-container .react-calendar {
+  width: 100%;
+  border: none;
+  background: #f4f9ff; /* dashboard background */
+  font-family: inherit;
+  border-radius: 0 0 18px 18px;
+  padding: 12px 12px 0 12px;
+}
+
+.emi-calendar-container .react-calendar__navigation {
+  background: none;
+  margin-bottom: 8px;
+}
+
+.emi-calendar-container .react-calendar__navigation button {
+  color: #12457b;
+  font-weight: 600;
+  font-size: 1.1em;
+  background: none;
+  border-radius: 8px;
+  border: none;
+  transition: background 0.15s, color 0.15s;
+  padding: 6px 10px;
+}
+
+.emi-calendar-container .react-calendar__navigation button:enabled:hover,
+.emi-calendar-container .react-calendar__navigation button:enabled:focus {
+  background: #e0e6f0;
+  color: #1976d2;
+}
+
+.emi-calendar-container .react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.93em;
+  color: #1976d2;
+  font-weight: 500;
+  background: #e0e6f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.emi-calendar-container .react-calendar__month-view__weekdays__weekday {
+  padding: 7px 0;
+}
+
+.emi-calendar-container .react-calendar__tile {
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  font-size: 1em;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  outline: none;
+  position: relative;
+  color: #023d6b;
+}
+
+.emi-calendar-container .react-calendar__tile:enabled:hover,
+.emi-calendar-container .react-calendar__tile:enabled:focus {
+  background: #9cd1f2;
+  color: #065f46;
+}
+
+.emi-calendar-container .react-calendar__tile--active {
+  background: #64a9ee !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+/* Highlight today's date in yellow */
+.emi-calendar-container .react-calendar__tile--now {
+  background: #fffde7 !important;
+  color: #ffb300 !important;
+  font-weight: bold;
+  border: 2px solid #ffe082;
+  box-shadow: 0 0 0 2px #ffe082;
+  z-index: 1;
+}
+
+/* Calendar tile highlight for EMI due */
+.emi-calendar-due {
+  background: #ffe0b2 !important;
+  color: #d84315 !important;
+  border-radius: 50%;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(255, 160, 0, 0.10);
+}
+
+/* Legend styling */
+.emi-calendar-legend {
+  margin-top: 10px;
+  font-size: 0.98rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f4f9ff;
+  width: 100%;
+  justify-content: center;
+  border-radius: 0 0 15px 15px;
+  padding-bottom: 10px;
+}
+
+.emi-calendar-dot {
+  width: 14px;
+  height: 14px;
+  background: #ffe0b2;
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid #d84315;
+}
+
+/* EMI Details Popup/Modal */
+.emi-calendar-popup-backdrop {
+  position: fixed;
+  z-index: 1200;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emi-calendar-popup {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18);
+  min-width: 280px;
+  max-width: 95vw;
+  padding: 28px 24px 18px 24px;
+  position: relative;
+  animation: emi-popup-fadein 0.18s;
+}
+
+@keyframes emi-popup-fadein {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: none;}
+}
+
+.emi-calendar-popup-close {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.emi-calendar-popup-close:hover {
+  color: #1976d2;
+}
+
+.emi-calendar-popup h4 {
+  margin: 0 0 12px 0;
+  color: #1976d2;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.emi-calendar-popup-section {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #222;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .emi-calendar-container {
+    min-width: 0;
+    max-width: 98vw;
+    border-radius: 12px;
+  }
+  .emi-calendar-container .react-calendar {
+    border-radius: 0 0 12px 12px;
+    padding: 8px 2px 0 2px;
+  }
+  .emi-calendar-legend {
+    border-radius: 0 0 12px 12px;
+  }
+}

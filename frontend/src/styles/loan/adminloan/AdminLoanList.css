@@ -1,0 +1,601 @@
+/* 🌐 Admin Filter Wrapper */
+.admin-loan-filter-fixed {
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  padding: 1rem 2rem;
+  margin-bottom: -1rem;
+}
+
+.no-applications-message {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #888;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin-top: 1rem;
+  font-family: "Segoe UI", sans-serif;
+}
+
+
+.admin-loan-filter-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  background-color: #dcdee0;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.admin-loan-filter-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  flex: 1;
+}
+
+.admin-loan-filter-group label {
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.admin-loan-filter-input {
+  padding: 0.55rem 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* 🧾 Section Heading */
+.admin-loan-section-header-wrapper {
+  padding: 0.5rem 2rem 0.5rem;
+}
+
+.admin-loan-section-heading {
+  font-size: 1.4rem;
+  color: #023D6B;
+  margin-bottom: 0.4rem;
+}
+
+.admin-loan-count-label {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 0.7rem;
+}
+
+/* 📊 Table Container */
+.admin-loan-table-wrapper {
+  padding: 0.5rem;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  overflow: auto; /* ✅ Both X and Y */
+  max-height: 500px;
+}
+
+.admin-loan-table-scroll {
+  min-width: 1100px; /* ✅ Prevent wrapping */
+  overflow: auto;
+}
+
+/* Scrollable Table Body */
+.admin-loan-table-scroll {
+  overflow-y: auto;
+  max-height: 420px;
+}
+
+/* 📄 Table Styling */
+.admin-loan-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+
+  
+}
+
+.admin-loan-table thead {
+  background-color: #023D6B;
+  color: #fff;
+
+}
+
+.admin-loan-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #023D6B;
+  color: white;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+
+}
+
+/* Rounded corners for sticky header */
+.admin-loan-table thead th:first-child {
+  border-top-left-radius: 30px;
+}
+
+.admin-loan-table thead th:last-child {
+  border-top-right-radius: 30px;
+}
+
+.admin-loan-table th,
+.admin-loan-table td {
+  text-align: left;
+  font-size: 0.95rem;
+  vertical-align: middle;
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  line-height: 1.4;
+}
+
+
+.admin-loan-table td {
+  background-color: #fff;
+}
+
+.admin-loan-table th:first-child,
+.admin-loan-table td:first-child {
+  padding-left: 1.5rem;
+}
+
+.admin-loan-table tbody tr:hover {
+  background-color: #f0f7ff;
+}
+
+/* 🟢🟡🔴 Status Badge Styles */
+.status-badge {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.status-badge.submitted {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+.status-badge.approved {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-badge.rejected {
+  background-color: #fdecea;
+  color: #c62828;
+}
+
+.status-badge.closed {
+  background-color: #eeeeee;
+  color: #424242;
+}
+
+.loan-status-badge {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+/* Color-coded based on status */
+.loan-status-badge.submitted {
+  background-color: #e3f2fd;
+  color: #0277bd;
+}
+
+.loan-status-badge.approved {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.loan-status-badge.rejected {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.loan-status-badge.closed {
+  background-color: #f3e5f5;
+  color: #6a1b9a;
+}
+
+
+/* 🎯 Action Buttons */
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;   /* ✅ Ensure vertical centering */
+  gap: 0.4rem;
+}
+.admin-loan-table tbody tr {
+  min-height: 60px;
+}
+
+.admin-actions button {
+  font-size: 0.8rem;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.blue-btn {
+  background-color: #1976d2;
+  color: white;
+}
+.blue-btn:hover {
+  background-color: #125ea8;
+}
+
+.green-btn {
+  background-color: #4caf50;
+  color: white;
+}
+.green-btn:hover {
+  background-color: #3c933f;
+}
+
+.red-btn {
+  background-color: #f44336;
+  color: white;
+}
+.red-btn:hover {
+  background-color: #d32f2f;
+}
+
+.gray-btn {
+  background-color: #9e9e9e;
+  color: white;
+}
+.gray-btn:hover {
+  background-color: #757575;
+}
+
+.delete-btn {
+  background-color: #e53935;
+  color: white;
+}
+.delete-btn:hover {
+  background-color: #b71c1c;
+}
+
+.table-edit-input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* 🏷️ Filter Badges and Clear Button (Copied from customer side) */
+.active-filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-left: 2rem;
+
+}
+
+.filter-badge {
+  background-color: #e3f2fd;
+  color: #023D6B;
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid #90caf9;
+}
+
+.clear-filters-inline {
+  display: flex;
+  align-items: center;
+}
+
+.loan-filter-clear-btn {
+  background-color: #69737c;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.loan-filter-clear-btn:hover {
+  background-color: #495057;
+}
+
+
+
+/* 🧱 Outer Modal Overlay */
+.loan-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 10, 10, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden; /* ❌ Prevent background scroll */
+}
+
+/* 📦 Modal Content Wrapper */
+.loan-modal-content {
+  background-color: #f9fcff;
+  padding-top: 3rem;
+  border-radius: 40px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden; /* Restrict to internal scroll */
+}
+
+/* 🧾 Scrollable Form Area */
+.loan-detail-card {
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: calc(90vh - 3rem); /* leave space for close icon */
+}
+
+/* ❌ Close Icon Positioned Outside Scroll */
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  z-index: 1000;
+}
+/* 🌐 Desktop Defaults (Above 900px) */
+/* 🔘 Hide filter button on desktop */
+.admin-toggle-filters-btn {
+  display: none;
+}
+
+/* 🟦 Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 330px;
+  width: calc(100% - 330px);
+  z-index: 999;
+  /* width: 100vw; */
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 📦 Modal Box */
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔘 Buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.cancel-btn,
+.confirm-delete-btn {
+  flex: 1;
+  max-width: 120px; /* You can adjust this width as needed */
+  text-align: center;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+
+.cancel-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.confirm-delete-btn {
+  background-color: #d9534f;
+  color: white;
+}
+
+.status-modal-heading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.highlight-loan-id {
+  color: #1976d2;
+}
+
+.status-reason-textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  resize: none;
+  outline: none;
+  margin-top: 1rem;
+  box-sizing: border-box;
+}
+
+.char-count-label {
+  text-align: right;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.confirm-delete-btn:disabled {
+  background-color: #254562;
+  cursor: not-allowed;
+}
+
+.confirm-delete-btn{
+  background-color: #254562
+}
+.confirm-delete-btn:hover {
+  background-color: #254562
+}
+
+
+
+
+/* 📱 Show button and panel only on ≤900px */
+@media (max-width: 900px) {
+  .admin-toggle-filters-btn {
+    display: block;
+    position: fixed;
+    top: 2rem;
+    right: 1rem;
+    margin: 0;
+    z-index: 999;
+    background-color: #02467b;
+    color: white;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .admin-toggle-filters-btn:hover {
+    background-color: #032f5c;
+  }
+
+  .admin-loan-filter-fixed {
+    display: none;
+    position: absolute;
+    top: 6rem;
+    right: 1rem;
+    width: 90%;
+    max-width: 350px;
+    background-color: #dcdee0;
+    z-index: 200;
+    border-radius: 20px;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .admin-loan-filter-fixed.open {
+    display: block;
+  }
+
+  .admin-loan-filter-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .admin-loan-table-scroll {
+    height: 480px;
+    overflow-y: auto;
+    margin-top: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+}
+
+
+/* 🖥️ Ensure desktop doesn’t show filter button or overlay */
+@media (min-width: 901px) {
+  .admin-loan-filter-fixed {
+    display: block;
+    position: static;
+    max-width: 100%;
+    box-shadow: none;
+    padding: 1rem 2rem;
+    background: transparent;
+  }
+
+  .admin-loan-filter-fixed.open {
+    display: block;
+  }
+
+  .admin-loan-filter-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    background-color: #dcdee0;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .admin-loan-table thead th,
+  .admin-loan-table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+    line-height: 1.4;
+  }
+
+  .admin-loan-table tbody tr {
+    min-height: 60px;
+  }
+
+  .admin-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+  }
+}
+
+/* 🔧 Adjust modal overlay for screen width ≤770px */
+@media (max-width: 770px) {
+  .modal-overlay {
+    left: 0; /* ✅ Shift modal left */
+    width: 100%; /* ✅ Expand width to compensate */
+  }
+}

@@ -1,0 +1,122 @@
+.adm-wrapper {
+  padding: 2rem;
+  background-color: #f8fbff;
+  font-family: "Segoe UI", sans-serif;
+  color: #023d6b;
+}
+
+.adm-title {
+  font-size: 28px;
+  margin-bottom: 2rem;
+}
+
+/* Stat cards */
+.adm-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.adm-stat-box {
+  background-color: #12457b;
+  color: white;
+  padding: 1.4rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.adm-stat-box svg {
+  font-size: 26px;
+  margin-bottom: 0.5rem;
+}
+
+.adm-stat-box p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.adm-stat-box h3 {
+  margin-top: 4px;
+  font-size: 20px;
+}
+
+/* Charts */
+.adm-charts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.adm-chart-card {
+  flex: 1 1 280px;
+  background-color: #e4eaf5;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+.adm-chart-card h4 {
+  font-size: 18px;
+  margin-bottom: 1rem;
+  color: #023d6b;
+}
+
+.adm-chart-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.adm-chart-card li {
+  font-size: 15px;
+  margin-bottom: 0.6rem;
+}
+
+.adm-chart-download {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.adm-chart-download button {
+  background-color: #023d6b;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.adm-chart-download button:hover {
+  background-color: #021d3f;
+}
+
+
+.adm-legend-box {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.adm-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #023d6b;
+}
+
+.adm-legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}

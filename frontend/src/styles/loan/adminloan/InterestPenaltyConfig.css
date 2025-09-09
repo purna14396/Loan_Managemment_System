@@ -1,0 +1,307 @@
+/* 🌐 Main Wrapper */
+.interest-config-wrapper {
+  padding: 1.5rem 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f3f9ff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 🔠 Header */
+.interest-config-header {
+  padding-bottom: 1rem;
+}
+
+.interest-config-title {
+  font-size: 1.5rem;
+  color: #023D6B;
+  margin-bottom: 0.2rem;
+}
+
+.interest-config-subtitle {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.interest-config-count {
+  padding-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* 📄 Table Styling */
+.interest-config-table-wrapper {
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: auto; /* ✅ Enable horizontal scroll */
+  border-radius: 30px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  margin-top: 1rem;
+  border-bottom: 1px solid #9a9a9a;
+}
+
+/* 📊 Table Layout */
+.interest-config-table.scrollable {
+  width: 100%;
+  min-width: 800px; /* ✅ Ensure scrollability */
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.interest-config-table tr td {
+  background-color: #f6fcff;
+}
+
+
+.no-loan-types {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #666;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #fafafa;
+}
+
+
+/* 🧠 Table Head */
+.interest-config-table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #023D6B;
+  color: white;
+  z-index: 1;
+  padding: 1rem;
+  font-size: 0.95rem;
+  text-align: left;
+  font-weight: 600;
+  padding-left: 2rem;
+}
+
+.interest-config-table th:first-child {
+  border-top-left-radius: 30px;
+  max-width: 30%;
+}
+
+.interest-config-table th:last-child {
+  border-top-right-radius: 30px;
+}
+
+/* 🧩 Column Padding */
+.interest-config-table th:nth-child(2),
+.interest-config-table td:nth-child(2) {
+  padding-right: 2rem;
+}
+
+.interest-config-table th:nth-child(3),
+.interest-config-table td:nth-child(3) {
+  padding-left: 2rem;
+}
+
+/* 📦 Table Cells */
+.interest-config-table td {
+  padding: 1rem;
+  padding-left: 2rem;
+  font-size: 0.95rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: middle;
+}
+
+/* ✏️ Input fields */
+.interest-config-input {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  background-color: #fefefe;
+}
+
+/* 💾 Save/Update Button */
+.interest-config-update-btn {
+  padding: 8px 14px;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+}
+
+.interest-config-update-btn:hover {
+  background-color: #125ea8;
+}
+
+/* 🌈 Row Hover */
+.interest-config-table tbody tr:hover {
+  background-color: #dbecff;
+}
+
+/* 📏 Column Widths */
+.interest-config-table th:nth-child(1),
+.interest-config-table td:nth-child(1) {
+  width: 35%;
+}
+
+.interest-config-table th:nth-child(2),
+.interest-config-table td:nth-child(2) {
+  width: 20%;
+  text-align: center;
+}
+
+.interest-config-table th:nth-child(3),
+.interest-config-table td:nth-child(3) {
+  width: 20%;
+  text-align: center;
+}
+
+.interest-config-table th:nth-child(4),
+.interest-config-table td:nth-child(4) {
+  width: 25%;
+  text-align: center;
+}
+
+.interest-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 330px; /* Keeps sidebar visible */
+  width: calc(100% - 330px);
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.35); /* translucent black */
+  backdrop-filter: blur(3px);            /* blur effect */
+  z-index: 999;                          /* high priority */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.interest-modal {
+  background-color: white;
+  padding: 2rem;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  position: relative;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.interest-modal h4 {
+  margin-bottom: 1.2rem;
+  color: #023D6B;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.interest-modal label {
+  font-weight: 500;
+  color: #333;
+  display: block;
+  margin-top: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.interest-modal input {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.interest-modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.interest-modal-buttons button {
+  flex: 1;
+  margin: 0 0.5rem;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.interest-modal-buttons .cancel {
+  background-color: #83888b;
+  color: white;
+}
+
+.interest-modal-buttons .cancel:hover {
+  background-color: #28292a;
+}
+
+.interest-modal-buttons .save {
+  background-color: #023D6B;
+  color: white;
+}
+
+.interest-modal-buttons .save:hover {
+  background-color: #021c3c;
+}
+
+.interest-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #888;
+  cursor: pointer;
+}
+
+.interest-modal-close:hover {
+  color: #000;
+}
+/* 📱 Responsive: Scroll + Adjustments @ 1050px */
+@media (max-width: 1050px) {
+  .interest-config-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .interest-config-table.scrollable {
+    min-width: 700px;
+  }
+
+  .interest-config-title {
+    font-size: 1.3rem;
+  }
+
+  .interest-config-subtitle,
+  .interest-config-count {
+    font-size: 0.9rem;
+  }
+
+  .interest-config-input {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .interest-config-update-btn {
+    font-size: 0.85rem;
+    width: 90px;
+  }
+}
+
+/* 🔧 Adjust modal overlay for screen width ≤770px */
+@media (max-width: 770px) {
+ .interest-modal-overlay {
+    left: 0; /* ✅ Shift modal left */
+    width: 100%; /* ✅ Expand width to compensate */
+  }
+}

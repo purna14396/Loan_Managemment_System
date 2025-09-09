@@ -1,0 +1,413 @@
+.loan-type-config-wrapper {
+  padding: 1.5rem 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f3f9ff;
+  min-height: 70vh;
+}
+
+.loan-type-header {
+  padding-bottom: 1rem;
+}
+
+.loan-type-header .loan-type-count {
+  padding-top: 0.5rem;
+}
+
+.loan-type-title {
+  font-size: 1.5rem;
+  color: #023D6B;
+  margin-bottom: 0.2rem;
+  
+}
+
+.loan-type-subtitle {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* ➕ Form Section */
+.loan-type-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background-color: #dcdee0;
+}
+
+.loan-type-input {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.loan-type-add-btn {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.loan-type-add-btn:hover {
+  background-color: #3c933f;
+}
+
+/* 📄 Table Styling */
+.loan-type-table-wrapper {
+  max-height: 430px;
+  overflow-y: auto;
+  border-radius: 30px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  border-bottom: 0.1px solid grey;
+
+}
+
+.loan-type-table.scrollable {
+  width: 98%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.loan-type-table.scrollable thead th {
+  position: sticky;
+  top: 0;
+  background-color: #023D6B;
+  color: white;
+  z-index: 1;
+}
+
+.loan-type-table th,
+.loan-type-table td {
+  padding: 1rem;
+  font-size: 0.95rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.loan-type-table th:first-child {
+  border-top-left-radius: 30px;
+}
+
+.loan-type-table th:last-child {
+  border-top-right-radius: 30px;
+}
+
+.loan-type-table tbody tr:hover {
+  background-color: #f0f7ff;
+}
+
+/* 🟢 Modify & Delete Button Styles */
+.loan-type-edit-btn,
+.loan-type-delete-btn {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.loan-type-edit-btn {
+  background-color: #1976d2;
+  color: white;
+}
+
+.loan-type-edit-btn:hover {
+  background-color: #125ea8;
+}
+
+.loan-type-delete-btn {
+  background-color: #e53935;
+  color: white;
+}
+
+.loan-type-delete-btn:hover {
+  background-color: #b71c1c;
+}
+
+.loan-type-table tbody tr:hover {
+  background-color: #f0f7ff;
+}
+
+/* 🪟 Modal Styling */
+.loan-type-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 330px; /* Do not cover sidebar */
+  width: calc(100% - 330px);
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(3px);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loan-type-modal {
+  background-color: white;
+  padding: 2rem;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  position: relative;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.loan-type-modal h4 {
+  margin-bottom: 1.2rem;
+  color: #023D6B;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.loan-type-modal label {
+  font-weight: 500;
+  color: #333;
+  display: block;
+  margin-top: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.loan-type-modal input {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.loan-type-modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.loan-type-modal-buttons button {
+  flex: 1;
+  margin: 0 0.5rem;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.loan-type-modal-buttons .cancel {
+  background-color: #83888b;
+  color: white;
+}
+
+.loan-type-modal-buttons .cancel:hover {
+  background-color: #28292a;
+}
+
+.loan-type-modal-buttons .save {
+  background-color: #023D6B;
+  color: white;
+}
+
+.loan-type-modal-buttons .save:hover {
+  background-color: #021c3c;
+}
+
+.loan-type-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #888;
+  cursor: pointer;
+}
+
+.loan-type-modal-close:hover {
+  color: #000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.loan-type-scroll-body {
+  margin: 0.3rem 0rem;
+  max-height: 360px;
+  overflow-y: auto;
+  border-top: none;
+}
+
+.loan-type-table-body {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.loan-type-table-body td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.95rem;
+  vertical-align: middle;
+  background-color: #fff;
+}
+
+/* Match column width for Requirements */
+.loan-type-table-body th:nth-child(2),
+.loan-type-table td:nth-child(2)  {
+  width: 50%;
+}
+
+/* Reduce width for Max Tenure column */
+.loan-type-table th:nth-child(3),
+.loan-type-table td:nth-child(3) {
+  width: 140px;
+  text-align: center;
+}
+/* Reduce width for Max amount column */
+.loan-type-table th:nth-child(4),
+.loan-type-table td:nth-child(4) {
+  width: 200px;
+  text-align: center;
+}
+/* Reduce width for Max amount column */
+.loan-type-table th:nth-child(5),
+.loan-type-table td:nth-child(5) {
+  width: 300px;
+  text-align: center;
+}
+
+/* Reduce width for Max Tenure column */
+.loan-type-table th:nth-child(1),
+.loan-type-table td:nth-child(1) {
+  width: 180px;
+}
+
+
+.loan-type-table-body tr:hover {
+  background-color: #f0f7ff;
+}
+
+
+/* 🟰 Equal width for all 5 table columns */
+/* Custom widths for each column */
+.loan-type-table th:nth-child(1),
+.loan-type-table td:nth-child(1) {
+  width: 22%; /* Name */
+  text-align: left;
+}
+
+.loan-type-table th:nth-child(2),
+.loan-type-table td:nth-child(2) {
+  width: 14%; /* Max Tenure */
+  text-align: center;
+}
+
+.loan-type-table th:nth-child(3),
+.loan-type-table td:nth-child(3) {
+  width: 20%; /* Max Amount */
+  text-align: center;
+}
+
+.loan-type-table th:nth-child(4),
+.loan-type-table td:nth-child(4) {
+  width: 18%; /* Max Loans */
+  text-align: center;
+}
+
+.loan-type-table th:nth-child(5),
+.loan-type-table td:nth-child(5) {
+  width: 26%; /* Actions */
+  text-align: center;
+}
+
+
+.loan-type-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 330px; /* Keeps sidebar visible */
+  width: calc(100% - 330px);
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.35); /* translucent black */
+  backdrop-filter: blur(3px);            /* blur effect */
+  z-index: 999;                          /* high priority */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-loan-types {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 1.1rem;
+  color: #777;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9f9f9;
+
+}
+
+
+
+@media (max-width: 1111px) {
+  .loan-type-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .loan-type-table {
+    width: 720px; /* Force table to scroll horizontally */
+    min-width: 700px;
+  }
+
+  .loan-type-table td,
+  .loan-type-table th {
+    white-space: nowrap; /* Prevent wrapping */
+  }
+}
+
+
+
+@media (max-width: 770px) {
+  
+
+  
+  .loan-type-modal-overlay {
+    left: 0;
+    width: 100%;
+  }
+  
+  
+  
+  .loan-type-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .loan-type-table {
+    width: 780px; /* Forces horizontal scroll */
+  }
+}
+
+

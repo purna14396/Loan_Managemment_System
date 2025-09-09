@@ -1,0 +1,256 @@
+/* 📦 Profile Layout Wrapper */
+.profile-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+  gap: 1rem;
+  width: 100%;
+  background-color: #f5f8fc;
+}
+
+/* 🧾 Common Card Style */
+.profile-card {
+  border-left: 5px solid #023D6B;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+}
+
+.profile-card + .profile-card {
+  margin-top: 0.1rem;
+}
+
+.profile-card h2,
+.profile-card h3 {
+  color: #023D6B;
+  margin-bottom: 0.2rem;
+}
+
+/* 👀 Profile View/Edit Form Layout */
+.profile-form.three-column-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+
+}
+
+.profile-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-form input,
+.profile-form select,
+.profile-form textarea {
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  background-color: #eee;
+  box-sizing: border-box;
+}
+
+.profile-form input:focus,
+.profile-form select:focus,
+.profile-form textarea:focus {
+  outline: none;
+  border-color: #023d6b;
+  background-color: #f9fcff;
+}
+
+.profile-form label {
+  font-weight: 600;
+  color: #023D6B;
+  margin-bottom: 0.3rem;
+}
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+/* Editable fields */
+.profile-form input:read-write,
+.profile-form textarea:read-write {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+}
+
+/* Read-only fields */
+.profile-form input[readonly],
+.profile-form textarea[readonly] {
+  background-color: #e0e0e0;
+  border: 1px solid #bcbcbc;
+  color: #333;
+}
+
+.profile-form input[readonly]:hover,
+.profile-form textarea[readonly]:hover {
+  cursor: not-allowed;
+}
+
+/* 🔘 Buttons */
+.edit-btn,
+.save,
+.cancel {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #023D6B;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #012544;
+}
+
+.save {
+  background-color: #023D6B;
+  color: white;
+  margin-right: 1rem;
+}
+
+.save:hover {
+  background-color: #012544;
+}
+
+.cancel {
+  background-color: #888;
+  color: white;
+}
+
+.cancel:hover {
+  background-color: #666;
+}
+
+/* 🔐 Password Section Layout */
+.password-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+/* 📌 Password Input Fields */
+.password-form-group {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.password-form-group label {
+  font-weight: 600;
+  color: #023D6B;
+  margin-bottom: 0.3rem;
+}
+
+/* 👁️ Password Field with Toggle */
+.password-field {
+  display: flex;
+  align-items: center;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0 0.6rem;
+}
+
+.password-field input {
+  flex: 1;
+  padding: 0.6rem 0.4rem;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+}
+
+.password-field input:focus {
+  outline: none;
+  background-color: #f9fcff;
+}
+
+.password-field span {
+  cursor: pointer;
+  color: #023D6B;
+  font-size: 1.1rem;
+  padding-left: 0.5rem;
+}
+
+/* ✅ Button Row for Save / Cancel */
+.password-button-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.password-button-row .save,
+.password-button-row .cancel {
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+}
+
+.password-button-row .save {
+  background-color: #023D6B;
+  color: white;
+}
+
+.password-button-row .save:hover {
+  background-color: #012544;
+}
+
+.password-button-row .cancel {
+  background-color: #888;
+  color: white;
+}
+
+.password-button-row .cancel:hover {
+  background-color: #666;
+}
+
+
+@media (max-width: 790px) {
+  .password-row {
+
+    justify-content: center;
+  }
+
+  .password-form-group {
+    width: 95%;
+  }
+
+  .password-field {
+    width: 100%;
+  }
+
+  .password-field input {
+    width: 100%;
+  }
+  
+  .password-button-row {
+    margin-top: 1rem;
+
+  }
+  
+}
