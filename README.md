@@ -53,15 +53,63 @@ src/main/resources/application.properties
 
 Paste the following config:
 ```properties
+# Load secret properties
+spring.config.import=optional:classpath:application-secret.properties
+
+# =====================
+# Server Configuration
+# =====================
 server.port=8081
-spring.datasource.url=jdbc:mysql://localhost:3306/lms_db
+
+# =====================
+# CORS Configuration
+# =====================
+spring.mvc.cors.allowed-origins=http://localhost:3000
+spring.main.allow-bean-definition-overriding=true
+
+# =====================
+# Database Configuration
+# =====================
+spring.datasource.url=jdbc:mysql://localhost:3306/lms_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
 spring.datasource.username=${DB_USERNAME}
 spring.datasource.password=${DB_PASSWORD}
+
+# =====================
+# Hibernate Configuration
+# =====================
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
-app.admin.secret=${ADMIN_SECRET}
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+
+# =====================
+# Application Info
+# =====================
+spring.application.name=backend
+
+# =====================
+# JWT Configuration
+# =====================
 jwt.secret=${JWT_SECRET}
 jwt.expiration=${JWT_EXPIRATION}
+
+# =====================
+# Admin Secret
+# =====================
+app.admin.secret=${ADMIN_SECRET}
+super.admin.key=${SUPER_ADMIN_KEY}
+
+# === Gmail SMTP (no password here) ===
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=${MAIL_USERNAME}
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.properties.mail.smtp.starttls.required=true
+spring.mail.properties.mail.debug=false   # set to false after verifying
+
+# pretty From name (works with SimpleMailMessage)
+mail.from=SmartLendOfficial <smartlendlms1@gmail.com>
+
 ```
 
 Then, create a new file for secrets:
@@ -69,12 +117,20 @@ Then, create a new file for secrets:
 #### 📁 `src/main/resources/application-secret.properties`
 ```properties
 DB_USERNAME=root
-DB_PASSWORD=your_password
+DB_PASSWORD= your db pass
 
-JWT_SECRET=your_jwt_secret_key
-JWT_EXPIRATION=3600000  # (e.g., 1 hour in milliseconds)
+JWT_SECRET= jwt secret key
+JWT_EXPIRATION=86400000
 
-ADMIN_SECRET=supersecretkey
+ADMIN_SECRET=admin secret key
+super.admin.key= superadmin secret key
+
+MAIL_USERNAME= official mail
+MAIL_PASSWORD= mail app password
+
+spring.mail.username=${MAIL_USERNAME}
+spring.mail.password=${MAIL_PASSWORD}
+
 ```
 
 Make sure to include this secret file in your `application.properties`:
@@ -118,95 +174,54 @@ npm start
 
 ---
 
-## 🛠️ Project Features Summary
 
-- ✅ User Login & Registration (Admin / Customer)  
-- ✅ JWT Authentication  
-- ✅ Role-based Dashboards  
-- ✅ Protected Routes  
-- ✅ Form Validation & Toast Notifications  
-- ✅ Admin Key Verification  
-- ✅ Clean Modular Code Structure:
+# Loan Management System – Features Summary
 
----
+## Authentication & Security
+- User Login & Registration (Admin / Customer)
+- JWT Authentication & Authorization
+- Role-based Dashboards (Admin / Customer)
+- Protected Routes for Secure Access
+- Admin Key Verification during Admin Signup
+- Password Encryption with BCrypt
+- Token Expiry & Refresh Handling
 
-## 🖼️ Application UI Screenshots
-
-### 🏠 1. Home Page
-![Home](https://github.com/user-attachments/assets/5a2c0279-deaa-45b9-9c69-1756cdad3eae)
-
-### 💼 2. Loan Services Section
-![Loan Services](https://github.com/user-attachments/assets/98ecfe4e-58f7-409e-853e-23c955696a4f)
-
-### 📬 3. Contact Form Section
-![Contact Form](https://github.com/user-attachments/assets/8cf46a84-8969-4a40-a633-980b859ed698)
-
-### 📝 4. Registration Forms
-
-<table>
-  <tr>
-    <td><img src="https://github.com/user-attachments/assets/97ae478c-d83d-42cf-95d6-c40e8f6ebbb4" width="100%"/></td>
-    <td><img src="https://github.com/user-attachments/assets/d182a273-a8bd-499b-b5e2-7efe4005234c" width="100%"/></td>
-  </tr>
-</table>
-
-### 🔐 5. Login Page
-
-- The login interface allows Admin and Customer users to authenticate. On successful login, a JWT token is issued and used for all secured API access.
-- Users can securely reset their password by providing their username and new credentials. Backend validations are in place to prevent mismatches or unauthorized resets.
-
-<table>
-  <tr>
-    <td><img src="https://github.com/user-attachments/assets/c5303ef7-6635-4b97-9ed0-5371d115517c" width="100%"/></td>
-    <td><img src="https://github.com/user-attachments/assets/17ef2d0b-beaa-4f80-9198-25fa3129f6e1" width="100%"/></td>
-  </tr>
-</table>
-
-### 🔐 6. Emi Calculator Feature
-
-The Loan Management System includes a built-in **EMI (Equated Monthly Installment) Calculator** accessible from the home page. Users can calculate estimated monthly payments based on:
-- Selected **loan type**
-- Desired **loan amount**
-- **Loan duration** in months or years
-
-It dynamically shows:
-- 💸 Monthly EMI
-- 📊 Interest rate based on loan type
-- 📈 Total payable amount and principal breakdown
-
-![Emi_Calculator](https://github.com/user-attachments/assets/762aa001-d409-4b99-b594-12ec64e826d0)
-
-### 🔐 7. Admin Dashboard
-
-The Admin dashboard offers full control over the system, allowing administrative users to manage all aspects of the loan platform.
-
-- The Admin dashboard offers full control over the system, allowing administrative users to manage all aspects of the loan platform.
-- Dashboard – Overview with loan statistics and system metrics (coming soon)
-- User Management – Manage all registered users
-- Loan Applications – Approve, reject, or delete customer loan applications
-- Interest & Penalty Config – Define interest rates and penalty settings
-- Loan Type Configuration – Manage available loan types
-- Reports & Analytics – Visual reports on loan activity (coming soon)
-- My Profile – View and update admin details, change password
-- Contact Us – Raise support or service-related queries (coming soon)
-
-<img width="100%" alt="AdminDashboard" src="https://github.com/user-attachments/assets/7a04eeeb-7aec-46eb-b11e-f44d905120d8" />
+## Customer Features
+- Profile Management (View & Update Details)
+- Loan Application Module (Apply for Loans Online)
+- My Loan Applications (View Application Status & History)
+- EMI Calculator & EMI Tracking
+- EMI Repayment
+- Automated Email Notifications (Receipts and NOC)
+- CIBIL Score (Credit Score) Generation & Display
+- Contact Us / Support
 
 
-### 👤 8. Customer Dashboard
+## Admin Features
+- Dashboard with Role-based Access
+- Manage Users (View Customers, Full Details, Manage Accounts)
+- Manage Loans (Approve / Reject Applications)
+- View & Track EMI Payments
+- Download / Export Reports (PDF via jsPDF, React Charts)
 
-The Customer dashboard is streamlined for individual users to apply for loans, track their progress, and manage payments.
 
-- Dashboard – Overview with loan statistics and system metrics (coming soon)
-- User Management – Manage all registered users
-- Loan Applications – Approve, reject, or delete customer loan applications
-- Interest & Penalty Config – Define interest rates and penalty settings
-- Loan Type Configuration – Manage available loan types
-- Reports & Analytics – Visual reports on loan activity (coming soon)
-- My Profile – View and update admin details, change password
-- Contact Us – Raise support or service-related queries (coming soon)
+## Finance & Transparency Tools
+- EMI & Loan Repayment Calculator
+- Loan Comparison (helps customers plan before applying)
+- Creditworthiness Insights (based on generated CIBIL score)
 
-<img width="100%" alt="CustomerDashboard" src="https://github.com/user-attachments/assets/0eda8297-7c05-40d4-888b-0b31e81d7d9b" />
+## Notifications & Communication
+- Email Notifications (Loan Closed, NOC, Receipts for EMI Payment, EMI Due Reminders)
+- Automated Reminders for Payments
+
+## Technical & System Features
+- Clean Modular Code Structure (Frontend & Backend Separation)
+- React (Frontend) + Spring Boot (Backend) + MySQL (Database)
+- REST APIs 
+- Form Validation & Toast Notifications (Frontend UX)
+- Normalized Database Schema
+- Secure Authentication with JWT + BCrypt
+- Testing with JUnit, Mockito (Backend) & Jest (Frontend)
 
 This allows users to plan finances better before applying for any loan, enhancing the platform's usability and transparency.
 
